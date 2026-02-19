@@ -41,14 +41,16 @@ fi
 
 launchd環境ではシェルのPATHが極端に制限されます。`claude` コマンドが見つからないというエラーの原因はほぼこれです。
 
-```bash
-# plistで環境変数を設定
+```xml
+<!-- plistで環境変数を設定 -->
 <key>EnvironmentVariables</key>
 <dict>
   <key>PATH</key>
   <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
 </dict>
+```
 
+```bash
 # スクリプト内でも明示的に追加
 export PATH="/opt/homebrew/bin:$PATH"
 
